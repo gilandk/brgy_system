@@ -1,5 +1,8 @@
 <?php
 include('include/header.php');
+
+$today = date("Y-m-d");
+
 ?>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -9,13 +12,15 @@ include('include/header.php');
 
       <div class="btn-group" role="group" aria-label="...">
         <a href="add-health.php" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;&nbsp;</a>
-        <a href="sched-health.php" class="btn btn-success">Schedule</a>
+        <a href="health-infos.php" class="btn btn-success">All Schedule</a>
         <a href="archive-health-infos.php" class="btn btn-danger">Archive</a>
 
       </div>
 
       <div class="box-body table-responsive no-padding">
         <br />
+        <h4><b>Schedule of Today:</b> <?php echo $today;?></h4>
+        <br/>
         <table id="health" class="table table-hover">
           <thead>
             <th>Full Name</th>
@@ -30,7 +35,7 @@ include('include/header.php');
           <tbody>
 
             <?php
-            $sql = "SELECT * FROM tblhealth INNER JOIN tblcommunity WHERE tblhealth.id_resident = tblcommunity.id_comm AND tblhealth.archive='0'";
+            $sql = "SELECT * FROM tblhealth INNER JOIN tblcommunity WHERE tblhealth.id_resident = tblcommunity.id_comm AND dateSet='$today' AND tblhealth.archive='0'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {

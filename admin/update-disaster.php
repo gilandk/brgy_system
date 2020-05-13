@@ -26,13 +26,13 @@ include('include/header.php');
 
           <div class="form-group">
             <label>Family Name:</label>
-            
+
             <?php
             $sql2 = "SELECT * FROM tblhousehold WHERE id_household='$hh_id'";
             $result2 = $conn->query($sql2);
             if ($result2->num_rows > 0) {
               while ($row2 = $result2->fetch_assoc()) {
-                  $famname = $row2['famname'];
+                $famname = $row2['famname'];
               }
             }
             ?>
@@ -93,20 +93,38 @@ include('include/header.php');
               $sql1 = "SELECT * FROM tblcommunity WHERE id_household='$idhh'";
               $result1 = $conn->query($sql1);
               $hhcount = $result1->num_rows;
-
-
-              $sql2 = "SELECT * FROM tblcommunity WHERE id_household='$idhh' AND fam_head='1'";
-              $result2 = $conn->query($sql2);
-              if ($result2->num_rows > 0) {
-                while ($rowc = $result2->fetch_assoc()) {
-                  $famhead = $rowc['fname'];
-                }
-              }
           ?>
               <tr>
                 <td class="hide-me"><?php echo $rows['id_household']; ?></td>
                 <td><?php echo $rows['famname']; ?> Family</td>
-                <td><?php echo $famhead; ?></td>
+
+
+                <td>
+
+                  <?php
+
+                  $sql2 = "SELECT * FROM tblcommunity WHERE id_household='$idhh' AND fam_head='1'";
+                  $result2 = $conn->query($sql2);
+                  if ($result2->num_rows > 0) {
+                    while ($rowc = $result2->fetch_assoc()) {
+
+                  ?>
+
+
+                      <?php
+                      if (empty($rowc['fam_head'])) {
+                        echo 'None';
+                      } else {
+                        echo $rowc['fname'];
+                      }
+                      ?>
+
+                  <?php
+                    }
+                  }
+                  ?>
+
+                </td>
                 <td class="text-center"><?php echo $hhcount; ?></td>
                 <td class="text-center"><?php echo $rows['housenum']; ?></td>
                 <td class="text-center"><?php echo $rows['street']; ?></td>
