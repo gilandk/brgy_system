@@ -100,6 +100,30 @@ $(function () {
 });
 
 $(function () {
+  $("#blotters").DataTable({
+    order: [5, "desc"],
+    paging: true,
+    lengthChange: true,
+    searching: true,
+    ordering: true,
+    info: true,
+    autoWidth: true,
+  });
+});
+
+$(function () {
+  $("#dots").DataTable({
+    order: [3, "desc"],
+    paging: true,
+    lengthChange: true,
+    searching: true,
+    ordering: true,
+    info: true,
+    autoWidth: true,
+  });
+});
+
+$(function () {
   $("#selectresidents").DataTable({
     order: [1, "asc"],
     paging: true,
@@ -113,7 +137,7 @@ $(function () {
 
 $(function () {
   $("#health").DataTable({
-    order: [5, "asc"],
+    order: [5, "desc"],
     paging: true,
     lengthChange: true,
     searching: true,
@@ -193,7 +217,7 @@ $("#form_addresident").submit(function (e) {
 });
 
 $(".updateresident").on("click", function () {
-  var confirmation = confirm("Are you sure to Update this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -234,7 +258,7 @@ $("#form_addhousehold").submit(function (e) {
 });
 
 $(".updatehousehold").on("click", function () {
-  var confirmation = confirm("Are you sure to Update this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -255,7 +279,7 @@ $("#form_updatehousehold").submit(function (e) {
 
 //SETTINGS
 $(".updatesettings").on("click", function () {
-  var confirmation = confirm("Are you sure to Update this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -293,7 +317,7 @@ $("#form_add_account").on("submit", function (e) {
 });
 
 $(".updateaccount").on("click", function () {
-  var confirmation = confirm("Are you sure to Update this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -344,7 +368,7 @@ $("#form_adddisaster").submit(function (e) {
 });
 
 $(".updatedisaster").on("click", function () {
-  var confirmation = confirm("Are you sure to ADD this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -385,7 +409,7 @@ $("#form_addhealth").submit(function (e) {
 });
 
 $(".updatehealth").on("click", function () {
-  var confirmation = confirm("Are you sure to ADD this");
+  var confirmation = confirm("Are you sure to UPDATE this");
   if (confirmation) {
     return true;
   }
@@ -395,6 +419,68 @@ $(".updatehealth").on("click", function () {
 $("#form_updatehealth").submit(function (e) {
   $.post("update-health(code).php", $(this).serialize(), function (data) {
     if (data == "Successfully Added.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+//blotter
+$(".updateblotter").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_updateblotter").submit(function (e) {
+  $.post("update-blotter(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Added.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+//DOTS
+$(".adddots").on("click", function () {
+  var confirmation = confirm("Are you sure to ADD this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_adddots").submit(function (e) {
+  $.post("add-dots(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Added.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+$(".updatedots").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_updatedots").submit(function (e) {
+  $.post("update-dots(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
       alert(data);
       location.reload();
     } else {

@@ -10,9 +10,7 @@ include('include/header.php');
 
     <form action="#" method="POST" id="form_updatehealth">
 
-
       <?php
-
       $q = "SELECT * FROM tblhealth WHERE id_health='$_GET[id]'";
       $r = $conn->query($q);
       
@@ -30,7 +28,6 @@ include('include/header.php');
           <div class="form-group">
 
           <?php
-
           $n = "SELECT * FROM tblcommunity WHERE id_comm='$id_r'";
           $r1 = $conn->query($n);
       
@@ -53,7 +50,6 @@ include('include/header.php');
           <?php
             }
           }
-
           ?>
 
           <div class="form-group">

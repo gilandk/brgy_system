@@ -77,12 +77,14 @@ require_once('../config.php');
             <li><a href="residents.php">Resident Information</a></li>
             <li><a href="households.php">Households</a></li>
             <li><a href="health-infos.php">Health Information</a></li>
+            <li><a href="dots.php">DOTS</a></li>
             <li><a href="disasters.php">Disaster Risk</a></li>
-            <li><a href="#">Blotter</a></li>
+            <li><a href="blotters.php">Blotter</a></li>
             <li><a href="#">Clearance</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="officials.php">Officials</a></li>
             <li><a href="accounts.php">Accounts</a></li>
+            <li><a href="settings-system.php">Settings (System)</a></li>
 
           <?php
           } else if ($_SESSION['privSec'] == '1') {
@@ -90,36 +92,39 @@ require_once('../config.php');
             <li><a href="residents.php">Resident Information</a></li>
             <li><a href="households.php">Households</a></li>
             <li><a href="health-infos.php">Health Information</a></li>
+            <li><a href="dots.php">DOTS</a></li>
             <li><a href="disasters.php">Disaster Risk</a></li>
-            <li><a href="#">Blotter</a></li>
+            <li><a href="blotters.php">Blotter</a></li>
             <li><a href="#">Clearance</a></li>
             <li><a href="#">Announcements</a></li>
             <li><a href="officials.php">Officials</a></li>
+            <li><a href="settings-system.php">Settings (System)</a></li>
 
           <?php
           } else if ($_SESSION['privBlotter'] == '1') {
           ?>
             <li><a href="residents.php">Resident Information</a></li>
-            <li><a href="#">Blotter</a></li>
+            <li><a href="blotters.php">Blotter</a></li>
             <li><a href="#">Clearance</a></li>
           <?php
           } else if ($_SESSION['privAnc'] == '1') {
 
           ?>
             <li><a href="#">Announcements</a></li>
+            <li><a href="settings-system.php">Settings (System)</a></li>
           <?php
           } else if ($_SESSION['privHealth'] == '1') {
 
           ?>
             <li><a href="residents.php">Resident Information</a></li>
             <li><a href="health-infos.php">Health Information</a></li>
+            <li><a href="dots.php">DOTS</a></li>
             <li><a href="disasters.php">Disaster Risk</a></li>
             <li><a href="#">Clearance</a></li>
 
           <?php
           }
           ?>
-
-          <li><a href="settings.php">Settings</a></li>
+          <li><a href="settings.php">Settings (Account)</a></li>
         </ul>
       </div>
