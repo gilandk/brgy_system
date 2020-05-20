@@ -51,7 +51,11 @@ include('include/header.php');
 
       <div class="form-group">
         <label>Birthdate:</label>
-        <input type="date" class="form-control" min="01-01-1960" placeholder="Birthdate" name="birthday" autocomplete="off" required>
+        <input type="date" class="form-control" min="01-01-1960" placeholder="Birthdate" id="dob" name="birthday" autocomplete="off" required>
+      
+      <div class="form-group">
+        <label>Age:</label>
+      <input class="form-control" type="text" id="age" name="age" placeholder="Age" readonly>
       </div>
 
       <div class="form-group">

@@ -8,9 +8,7 @@ include('include/header.php');
     <div class="col-md-12">
 
       <div class="btn-group" role="group" aria-label="...">
-        <a href="add-dots.php" class="btn btn-primary">&nbsp;&nbsp;&nbsp;Add&nbsp;&nbsp;&nbsp;</a>
-        <a href="sched-dots.php" class="btn btn-success">Schedule</a>
-        <a href="archive-dots.php" class="btn btn-danger">Archive</a>
+        <a href="dots.php" class="btn btn-primary">View</a>
 
       </div>
 
@@ -44,18 +42,18 @@ include('include/header.php');
                     <?php
                     if ($rows['status'] == 'Finished') {
                     ?>
-                      <a href="dots_P.php?id=<?php echo $rows['id_patient'] ?>"><span class="label label-success">Finished</span></td>
+                      <span class="label label-success">Finished</span></td>
                 <?php
                     }
-                    if ($rows['status'] == 'Pending') {
+                    if ($rows['status'] == 'for Return') {
                 ?>
-                  <a href="dots_F.php?id=<?php echo $rows['id_patient'] ?>"><span class="label label-warning">Pending</span></td>
+                  <span class="label label-warning">For Return</span></td>
                   <?php
                     }
                   ?>
                   <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['datecreated'])); ?></td>
-                  <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['schedule'])); ?></td>
-                  <td class="text-center"><a class="confirmationarchive" href="archive-dots(code).php?id=<?php echo $rows['id_patient']; ?>"><i class="fa fa-archive" aria-hidden="true"></i></a></td>
+                  <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['sched_return'])); ?></td>
+                  <td class="text-center"><a class="confirmationunarchive" href="unarchive-dots(code).php?id=<?php echo $rows['id_dots']; ?>"><i class="fa fa-archive" aria-hidden="true"></i></a></td>
                 </tr>
 
             <?php

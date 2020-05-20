@@ -19,6 +19,7 @@ $email = mysqli_real_escape_string($conn, $_POST['email']);
 $contact = mysqli_real_escape_string($conn, $_POST['contact']);
 $gender = mysqli_real_escape_string($conn, $_POST['gender']);
 $birthday = mysqli_real_escape_string($conn, $_POST['birthday']);
+$age = mysqli_real_escape_string($conn, $_POST['age']);
 $birthplace = mysqli_real_escape_string($conn, $_POST['birthplace']);
 $housenum = mysqli_real_escape_string($conn, $_POST['housenum']);
 $street = mysqli_real_escape_string($conn, $_POST['street']);
@@ -28,7 +29,7 @@ $province = mysqli_real_escape_string($conn, $_POST['province']);
 $civil_status = mysqli_real_escape_string($conn, $_POST['civil_status']);
 $voter_status = mysqli_real_escape_string($conn, $_POST['voter_status']);
 
-$sql = " INSERT INTO tblcommunity (lname, fname, mname, alias, email, contact, gender, birthday, birthplace, housenum, street, barangay, municipality, province, civil_status, voter_status) VALUES ('$lname', '$fname', '$mname', '$alias', '$email', '$contact', '$gender', '$birthday', '$birthplace', '$housenum', '$street', '$barangay', '$municipality', '$province', '$civil_status', '$voter_status')";
+$sql = " INSERT INTO tblcommunity (lname, fname, mname, alias, email, contact, gender, birthday, age, birthplace, housenum, street, barangay, municipality, province, civil_status, voter_status) VALUES ('$lname', '$fname', '$mname', '$alias', '$email', '$contact', '$gender', '$birthday', '$age', '$birthplace', '$housenum', '$street', '$barangay', '$municipality', '$province', '$civil_status', '$voter_status')";
 
 $result = $conn->query($sql);
 

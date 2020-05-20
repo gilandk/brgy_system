@@ -1,5 +1,8 @@
 <?php
 include('include/header.php');
+
+$today = date("Y-m-d");
+
 ?>
 
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -16,6 +19,8 @@ include('include/header.php');
 
       <div class="box-body table-responsive no-padding">
         <br />
+        <h4><b>Schedule of Today:</b> <?php echo $today; ?></h4>
+        <br />
         <table id="dots" class="table table-hover">
           <thead>
             <th>Patient Name</th>
@@ -28,7 +33,7 @@ include('include/header.php');
           <tbody>
 
             <?php
-            $sql = "SELECT * FROM tbldots INNER JOIN tblcommunity WHERE tbldots.id_patient = tblcommunity.id_comm AND tbldots.archive='0'";
+            $sql = "SELECT * FROM tbldots INNER JOIN tblcommunity WHERE tbldots.id_patient = tblcommunity.id_comm AND sched_return='$today' AND tbldots.archive='0'";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
@@ -44,18 +49,18 @@ include('include/header.php');
                     <?php
                     if ($rows['status'] == 'Finished') {
                     ?>
-                      <a href="dots_P.php?id=<?php echo $rows['id_patient'] ?>"><span class="label label-success">Finished</span></td>
+                      <a href="dots_R.php?id=<?php echo $rows['id_dots'] ?>"><span class="label label-success">Finished</span></td>
                 <?php
                     }
-                    if ($rows['status'] == 'Pending') {
+                    if ($rows['status'] == 'for Return') {
                 ?>
-                  <a href="dots_F.php?id=<?php echo $rows['id_patient'] ?>"><span class="label label-warning">Pending</span></td>
+                  <a href="dots_F.php?id=<?php echo $rows['id_dots'] ?>"><span class="label label-warning">For Return</span></td>
                   <?php
                     }
                   ?>
                   <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['datecreated'])); ?></td>
-                  <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['schedule'])); ?></td>
-                  <td class="text-center"><a href="update-dots.php?id=<?php echo $rows['id_patient']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a class="confirmationarchive" href="archive-dots(code).php?id=<?php echo $rows['id_patient']; ?>"><i class="fa fa-archive" aria-hidden="true"></i></a></td>
+                  <td class="text-center"><?php echo date("m-d-Y", strtotime($rows['sched_return'])); ?></td>
+                  <td class="text-center"><a href="update-dots.php?id=<?php echo $rows['id_dots']; ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a> | <a class="confirmationarchive" href="archive-dots(code).php?id=<?php echo $rows['id_dots']; ?>"><i class="fa fa-archive" aria-hidden="true"></i></a></td>
                 </tr>
 
             <?php

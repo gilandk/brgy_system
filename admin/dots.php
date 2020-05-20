@@ -44,7 +44,7 @@ include('include/header.php');
                     <?php
                     if ($rows['status'] == 'Finished') {
                     ?>
-                      <a href="dots_P.php?id=<?php echo $rows['id_dots'] ?>"><span class="label label-success">Finished</span></td>
+                      <a href="dots_R.php?id=<?php echo $rows['id_dots'] ?>"><span class="label label-success">Finished</span></td>
                 <?php
                     }
                     if ($rows['status'] == 'for Return') {

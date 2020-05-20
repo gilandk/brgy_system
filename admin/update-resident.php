@@ -62,7 +62,12 @@ include('include/header.php');
 
           <div class="form-group">
             <label>Birthdate:</label>
-            <input type="date" class="form-control" min="01-01-1960" placeholder="Birthdate" name="birthday" value="<?php echo $row['birthday']; ?>" required>
+            <input type="date" class="form-control" min="01-01-1960" placeholder="Birthdate" id="dob" name="birthday" value="<?php echo $row['birthday']; ?>" required>
+          </div>
+
+          <div class="form-group">
+            <label>Age:</label>
+            <input class="form-control" type="text" id="age" name="age" placeholder="Age" value="<?php echo $row['age']; ?>" readonly>
           </div>
 
           <div class="form-group">
