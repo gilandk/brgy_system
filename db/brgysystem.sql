@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 03:17 PM
+-- Generation Time: May 21, 2020 at 03:51 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -311,14 +311,14 @@ CREATE TABLE `tblofficials` (
 --
 
 INSERT INTO `tblofficials` (`id_officials`, `name`, `position`, `title`, `logo`) VALUES
-(1, 'Kagawad 1', 'Councilor', 'asdasdasdas', '5ebb94610e6ca.jpg'),
-(2, 'Kagawad 2', 'Councilor', 'asd', '5ebb94672fb04.jpg'),
-(3, 'Kagawad 3', 'Councilor', 'asd', '5ebb946c39bbc.jpg'),
-(4, 'Kagawad 4', 'Councilor', 'asd', '5ebb9472adbea.jpg'),
-(5, 'Kagawad 5', 'Councilor', 'asd', '5ec5fd9faaa99.jpg'),
-(6, 'Kagawad 6', 'Councilor', 'asd', '5ebb948b1c86f.jpg'),
-(7, 'Kagawad 7', 'Councilor', 'asd', '5ebb94b79c746.png'),
-(8, 'Kagawad 8', 'Councilor', 'asd', '5ebb94c508d32.jpg'),
+(1, 'Kagawad 1', 'Councilor', 'Committee of Peace and Order', '5ebb94610e6ca.jpg'),
+(2, 'Kagawad 2', 'Councilor', 'Committee on Tourism', '5ebb94672fb04.jpg'),
+(3, 'Kagawad 3', 'Councilor', 'Committee and Population', '5ebb946c39bbc.jpg'),
+(4, 'Kagawad 4', 'Councilor', 'Committee on Aquatic and Resources ', '5ebb9472adbea.jpg'),
+(5, 'Kagawad 5', 'Councilor', 'Committee on Sports and Developments', '5ec5fd9faaa99.jpg'),
+(6, 'Kagawad 6', 'Councilor', 'Committee on Health', '5ebb948b1c86f.jpg'),
+(7, 'Kagawad 7', 'Councilor', 'Committee on Agriculture', '5ebb94b79c746.png'),
+(8, 'Kagawad 8', 'Councilor', 'Committee on Infrastructure', '5ebb94c508d32.jpg'),
 (9, 'Captain Rindou', 'Brgy Captain', '', '5ec5fcbeb7449.jpg');
 
 -- --------------------------------------------------------
