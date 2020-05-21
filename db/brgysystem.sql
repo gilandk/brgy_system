@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 05, 2020 at 01:27 PM
+-- Generation Time: May 21, 2020 at 03:17 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -72,14 +72,22 @@ CREATE TABLE `tblannounce` (
 
 CREATE TABLE `tblblotter` (
   `id_blotter` int(11) NOT NULL,
-  `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
-  `gender` varchar(255) NOT NULL,
-  `age` int(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `dateposted` varchar(100) NOT NULL,
-  `datecreated` varchar(100) NOT NULL
+  `contact` varchar(11) NOT NULL,
+  `details` text NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `status` varchar(100) NOT NULL DEFAULT 'Pending',
+  `datecreated` timestamp NOT NULL DEFAULT current_timestamp(),
+  `archive` int(11) NOT NULL,
+  `archiveDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblblotter`
+--
+
+INSERT INTO `tblblotter` (`id_blotter`, `name`, `contact`, `details`, `location`, `status`, `datecreated`, `archive`, `archiveDate`) VALUES
+(1, 'Brenn Dela Cruz', '9546546512', 'Fist fight', 'Bocaue', 'Pending', '2020-05-16 10:09:47', 0, '2020-05-17 11:00:20');
 
 -- --------------------------------------------------------
 
@@ -129,6 +137,7 @@ CREATE TABLE `tblcommunity` (
   `contact` varchar(20) NOT NULL,
   `gender` varchar(100) NOT NULL,
   `birthday` varchar(100) NOT NULL,
+  `age` int(11) NOT NULL,
   `birthplace` varchar(100) NOT NULL,
   `housenum` varchar(100) NOT NULL,
   `street` varchar(100) NOT NULL,
@@ -151,10 +160,11 @@ CREATE TABLE `tblcommunity` (
 -- Dumping data for table `tblcommunity`
 --
 
-INSERT INTO `tblcommunity` (`id_comm`, `lname`, `fname`, `mname`, `alias`, `email`, `contact`, `gender`, `birthday`, `birthplace`, `housenum`, `street`, `barangay`, `municipality`, `province`, `civil_status`, `voter_status`, `datecreated`, `username`, `password`, `image`, `id_household`, `fam_head`, `archive`, `archiveDate`) VALUES
-(6, 'Roque', 'Aaron Paul', 'Ramirez', '', 'asdasd@gmail.com', '09199569072', 'Male', '1995-11-19', 'Guiguinto', '123', 'Purok 3', 'Tabang', 'test', 'test', 'single', 'Yes', '2020-04-01 11:12:31', '', '', '', 14, 1, 0, '0000-00-00 00:00:00'),
-(8, 'German', 'Chad', 'Joselito', 'Junior', 'chading@gmail.com', '123123123123', 'Male', '1990-11-11', 'Pandi', '123', 'test', 'test', 'test', 'test', 'Single', 'Yes', '2020-04-03 10:32:00', '', '', '', 13, 1, 0, '2020-04-04 14:41:09'),
-(9, 'Valencia', 'Rean', 'C', '', 'reanvalencia@gmail.com', '45665465465', 'Female', '1995-11-11', 'asdasd', '12312', 'sdasd', 'asad', 'asdasd', 'asdasd', 'single', 'Yes', '2020-04-03 12:46:16', '', '', '', 13, 0, 0, '2020-04-04 14:41:29');
+INSERT INTO `tblcommunity` (`id_comm`, `lname`, `fname`, `mname`, `alias`, `email`, `contact`, `gender`, `birthday`, `age`, `birthplace`, `housenum`, `street`, `barangay`, `municipality`, `province`, `civil_status`, `voter_status`, `datecreated`, `username`, `password`, `image`, `id_household`, `fam_head`, `archive`, `archiveDate`) VALUES
+(6, 'Roque', 'Aaron Paul', 'Ramirez', '', 'asdasd@gmail.com', '09199569072', 'Male', '1995-11-19', 24, 'Guiguinto', '123', 'Purok 3', 'Tabang', 'test', 'test', 'single', 'Yes', '2020-04-01 11:12:31', '', '', '', 14, 1, 0, '2020-05-13 05:26:35'),
+(8, 'German', 'Chad', 'Joselito', 'Junior', 'chading@gmail.com', '123123123123', 'Male', '1947-01-07', 73, 'Pandi', '123', 'test', 'test', 'test', 'test', 'Single', 'Yes', '2020-04-03 10:32:00', '', '', '', 13, 1, 0, '2020-05-13 05:03:27'),
+(9, 'Valencia', 'Rean', 'C', '', 'reanvalencia@gmail.com', '45665465465', 'Female', '1995-11-11', 0, 'asdasd', '12312', 'sdasd', 'asad', 'asdasd', 'asdasd', 'single', 'Yes', '2020-04-03 12:46:16', '', '', '', 15, 1, 0, '2020-05-13 05:43:23'),
+(10, 'Joestar', 'Jonathan', 'Jojo', '', 'jonathanjojo@gmail.com', '45646546546', 'Male', '1960-01-12', 60, 'Japan', '123', 'test', 'test', 'test', 'test', 'Single', 'Yes', '2020-05-18 14:42:25', '', '', '', 0, 0, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -178,7 +188,8 @@ CREATE TABLE `tbldmanage` (
 --
 
 INSERT INTO `tbldmanage` (`id_disaster`, `id_household`, `disaster`, `reports`, `location`, `datecreated`, `archive`, `archiveDate`) VALUES
-(1, 13, 'Flood', 'Heavy damage', 'Tabang', '2020-04-20 10:08:56', 0, '2020-05-01 13:32:48');
+(1, 13, 'Flood', 'Heavy damage', 'Tabang', '2020-04-20 10:08:56', 0, '2020-05-01 13:32:48'),
+(2, 14, 'Bagyo', 'binaha', 'Tabang', '2020-05-13 04:52:03', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -188,19 +199,27 @@ INSERT INTO `tbldmanage` (`id_disaster`, `id_household`, `disaster`, `reports`, 
 
 CREATE TABLE `tbldots` (
   `id_dots` int(11) NOT NULL,
-  `id` int(11) NOT NULL,
-  `patient` varchar(255) NOT NULL,
-  `medicine` varchar(255) NOT NULL,
-  `dayscure` varchar(255) NOT NULL,
-  `severaltimesdrug` varchar(255) NOT NULL,
-  `typemedicine` varchar(255) NOT NULL,
-  `durationuse` varchar(255) NOT NULL,
-  `consultationsched` varchar(255) NOT NULL,
-  `requirements` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `diagnosis` varchar(255) NOT NULL,
-  `datecreated` varchar(100) NOT NULL
+  `id_patient` int(11) NOT NULL,
+  `medicine` text NOT NULL,
+  `month_duration` varchar(100) NOT NULL,
+  `daily_usage` varchar(100) NOT NULL,
+  `medicine_type` varchar(255) NOT NULL,
+  `diagnosis` text NOT NULL,
+  `status` varchar(50) NOT NULL DEFAULT 'for Return',
+  `datecreated` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `sched_return` varchar(100) NOT NULL,
+  `archive` int(11) NOT NULL,
+  `archiveDate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbldots`
+--
+
+INSERT INTO `tbldots` (`id_dots`, `id_patient`, `medicine`, `month_duration`, `daily_usage`, `medicine_type`, `diagnosis`, `status`, `datecreated`, `sched_return`, `archive`, `archiveDate`) VALUES
+(1, 9, '', '', '', '', '', 'for Return', '2020-05-18 13:28:38', '2020-05-17 19:18:37', 0, '2020-05-18 13:28:38'),
+(2, 6, 'goodshit', '25', '3', 'DrugzzzZ', 'lit everyday', 'for Return', '2020-05-18 14:08:20', '2030-12-25', 0, '2020-05-18 14:08:20'),
+(3, 6, 'Drugs', '', '3', 'DrugzzzZ', 'lit everyday', 'for Return', '2020-05-18 14:08:09', '2030-12-25', 1, '2020-05-18 14:08:09');
 
 -- --------------------------------------------------------
 
@@ -226,7 +245,9 @@ CREATE TABLE `tblhealth` (
 
 INSERT INTO `tblhealth` (`id_health`, `id_resident`, `appointment`, `details`, `status`, `datecreated`, `dateSet`, `archive`, `archiveDate`) VALUES
 (1, 9, 'Bakuna', 'Baby', 'Pending', '2020-05-01 15:34:22.722908', '', 0, '2020-05-01 15:34:22.722908'),
-(2, 8, 'Tuli', '20 years na di tuli', 'Pending', '2020-05-05 10:51:39.192436', '2020-05-29', 0, '2020-05-05 10:51:39.192436');
+(2, 8, 'Tuli', '20 years na di tuli', 'Pending', '2020-05-05 10:51:39.192436', '2020-05-13', 0, '2020-05-05 10:51:39.192436'),
+(3, 6, 'testing', 'testing', 'Finished', '2020-05-13 05:23:03.691655', '2020-05-16', 0, '2020-05-13 05:23:03.691655'),
+(4, 6, 'test', 'test', 'Finished', '2020-05-13 05:23:49.866682', '2020-05-16', 0, '0000-00-00 00:00:00.000000');
 
 -- --------------------------------------------------------
 
@@ -253,7 +274,8 @@ CREATE TABLE `tblhousehold` (
 
 INSERT INTO `tblhousehold` (`id_household`, `famname`, `housenum`, `street`, `barangay`, `municipality`, `province`, `datecreated`, `archive`, `archiveDate`) VALUES
 (13, 'German', '123', 'asdasd', 'asdasd', 'asdasd', 'asdasd', '2020-04-03 12:46:34', 0, '0000-00-00 00:00:00'),
-(14, 'Roque', '126', 'Purok 3', 'Tabang', 'Guiguinto', 'Bulacan', '2020-04-04 14:20:53', 0, NULL);
+(14, 'Roque', '126', 'Purok 3', 'Tabang', 'Guiguinto', 'Bulacan', '2020-04-04 14:20:53', 0, NULL),
+(15, 'Valencia', '123', 'asd', 'asd', 'asd', 'asdasdas', '2020-05-13 05:27:11', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -278,13 +300,91 @@ CREATE TABLE `tblindigency` (
 
 CREATE TABLE `tblofficials` (
   `id_officials` int(11) NOT NULL,
-  `id` varchar(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `position` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `dateposted` varchar(100) NOT NULL
+  `title` varchar(250) NOT NULL,
+  `logo` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tblofficials`
+--
+
+INSERT INTO `tblofficials` (`id_officials`, `name`, `position`, `title`, `logo`) VALUES
+(1, 'Kagawad 1', 'Councilor', 'asdasdasdas', '5ebb94610e6ca.jpg'),
+(2, 'Kagawad 2', 'Councilor', 'asd', '5ebb94672fb04.jpg'),
+(3, 'Kagawad 3', 'Councilor', 'asd', '5ebb946c39bbc.jpg'),
+(4, 'Kagawad 4', 'Councilor', 'asd', '5ebb9472adbea.jpg'),
+(5, 'Kagawad 5', 'Councilor', 'asd', '5ec5fd9faaa99.jpg'),
+(6, 'Kagawad 6', 'Councilor', 'asd', '5ebb948b1c86f.jpg'),
+(7, 'Kagawad 7', 'Councilor', 'asd', '5ebb94b79c746.png'),
+(8, 'Kagawad 8', 'Councilor', 'asd', '5ebb94c508d32.jpg'),
+(9, 'Captain Rindou', 'Brgy Captain', '', '5ec5fcbeb7449.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsystem`
+--
+
+CREATE TABLE `tblsystem` (
+  `id_system` int(11) NOT NULL,
+  `brgyname` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `logo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblsystem`
+--
+
+INSERT INTO `tblsystem` (`id_system`, `brgyname`, `address`, `logo`) VALUES
+(1, 'Tabang', 'Arterial RD', '5ec67ec4c68e4.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_index`
+--
+
+CREATE TABLE `tbl_index` (
+  `id_index` int(11) NOT NULL,
+  `header` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `dateposted` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_index`
+--
+
+INSERT INTO `tbl_index` (`id_index`, `header`, `content`, `image`, `dateposted`) VALUES
+(1, 'Feeding Program', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. ', '5ec67d8e18bfd.jpg', '2020-05-21 13:09:34'),
+(2, '2020 Basketball League', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra purus tempor, hendrerit leo a, dapibus tellus. Nam vel accumsan est. Cras vestibulum ipsum eget elementum pretium. Donec vitae auctor velit, eget fermentum urna. Duis sagittis ligula et sodales consectetur. Maecenas ullamcorper quis erat in venenatis. Nam feugiat nisi eu felis suscipit, eget tempus arcu dapibus. In mattis elementum massa ut ultricies. ', '5ec67dd808445.jpg', '2020-05-21 13:10:48'),
+(3, '2020 Tree Planting', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc pharetra purus tempor, hendrerit leo a, dapibus tellus. Nam vel accumsan est. Cras vestibulum ipsum eget elementum pretium. Donec vitae auctor velit, eget fermentum urna. Duis sagittis ligula et sodales consectetur. Maecenas ullamcorper quis erat in venenatis. Nam feugiat nisi eu felis suscipit, eget tempus arcu dapibus. In mattis elementum massa ut ultricies. ', '5ec67de068b74.jpg', '2020-05-21 13:10:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_slider`
+--
+
+CREATE TABLE `tbl_slider` (
+  `id_slide` int(11) NOT NULL,
+  `banners` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `dateposted` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_slider`
+--
+
+INSERT INTO `tbl_slider` (`id_slide`, `banners`, `title`, `dateposted`) VALUES
+(1, '5ec666af72266.jpg', 'Thank you Frontliners', '2020-05-21 08:53:34'),
+(2, '5ec66707c1491.jpg', 'NBA Basketball Champion', '2020-05-21 08:53:34'),
+(3, '5ec6678c01ea2.jpg', 'Tree Planting Program 2020', '2020-05-21 08:53:34');
 
 --
 -- Indexes for dumped tables
@@ -363,6 +463,24 @@ ALTER TABLE `tblofficials`
   ADD PRIMARY KEY (`id_officials`);
 
 --
+-- Indexes for table `tblsystem`
+--
+ALTER TABLE `tblsystem`
+  ADD PRIMARY KEY (`id_system`);
+
+--
+-- Indexes for table `tbl_index`
+--
+ALTER TABLE `tbl_index`
+  ADD PRIMARY KEY (`id_index`);
+
+--
+-- Indexes for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  ADD PRIMARY KEY (`id_slide`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -382,7 +500,7 @@ ALTER TABLE `tblannounce`
 -- AUTO_INCREMENT for table `tblblotter`
 --
 ALTER TABLE `tblblotter`
-  MODIFY `id_blotter` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_blotter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblbusclearance`
@@ -400,31 +518,31 @@ ALTER TABLE `tblclearance`
 -- AUTO_INCREMENT for table `tblcommunity`
 --
 ALTER TABLE `tblcommunity`
-  MODIFY `id_comm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_comm` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbldmanage`
 --
 ALTER TABLE `tbldmanage`
-  MODIFY `id_disaster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_disaster` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbldots`
 --
 ALTER TABLE `tbldots`
-  MODIFY `id_dots` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_dots` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblhealth`
 --
 ALTER TABLE `tblhealth`
-  MODIFY `id_health` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_health` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblhousehold`
 --
 ALTER TABLE `tblhousehold`
-  MODIFY `id_household` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_household` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `tblindigency`
@@ -436,7 +554,25 @@ ALTER TABLE `tblindigency`
 -- AUTO_INCREMENT for table `tblofficials`
 --
 ALTER TABLE `tblofficials`
-  MODIFY `id_officials` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_officials` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `tblsystem`
+--
+ALTER TABLE `tblsystem`
+  MODIFY `id_system` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_index`
+--
+ALTER TABLE `tbl_index`
+  MODIFY `id_index` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_slider`
+--
+ALTER TABLE `tbl_slider`
+  MODIFY `id_slide` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

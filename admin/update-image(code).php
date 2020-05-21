@@ -14,7 +14,6 @@ if (isset($_POST)) {
     $msg = '';
     $id = $_POST['id_officials'];
 
-
     //profile picture
     $profileOk = true;
 

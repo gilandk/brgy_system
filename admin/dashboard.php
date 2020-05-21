@@ -109,6 +109,30 @@ $pending = $result0->num_rows;
       </div><!-- /.info-box -->
     </div>
 
+    
+    <div class="col-lg-3 col-xs-6">
+      <div class="info-box">
+        <!-- Apply any bg-* class to to the icon to color it -->
+        <span class="info-box-icon bg-red"><i class="fa fa-wheelchair" aria-hidden="true"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">PWD</span>
+          <span class="info-box-number">N/A</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div>
+
+    <div class="col-lg-3 col-xs-6">
+      <div class="info-box">
+        <!-- Apply any bg-* class to to the icon to color it -->
+        <span class="info-box-icon bg-red"><i class="fa fa-users" aria-hidden="true"></i></span>
+        <div class="info-box-content">
+          <span class="info-box-text">4PS members</span>
+          <span class="info-box-number">N/A</span>
+        </div><!-- /.info-box-content -->
+      </div><!-- /.info-box -->
+    </div>
+
+
   </div>
 
   <div class="row">
@@ -122,28 +146,6 @@ $pending = $result0->num_rows;
         <div class="info-box-content">
           <span class="info-box-text">Calamity Victim</span>
           <span class="info-box-number"><?php echo $disaster; ?></span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div>
-
-    <div class="col-lg-3 col-xs-6">
-      <div class="info-box">
-        <!-- Apply any bg-* class to to the icon to color it -->
-        <span class="info-box-icon bg-red"><i class="fa fa-wheelchair" aria-hidden="true"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">PWD</span>
-          <span class="info-box-number">93,139</span>
-        </div><!-- /.info-box-content -->
-      </div><!-- /.info-box -->
-    </div>
-
-    <div class="col-lg-3 col-xs-6">
-      <div class="info-box">
-        <!-- Apply any bg-* class to to the icon to color it -->
-        <span class="info-box-icon bg-red"><i class="fa fa-users" aria-hidden="true"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">4PS members</span>
-          <span class="info-box-number">93,139</span>
         </div><!-- /.info-box-content -->
       </div><!-- /.info-box -->
     </div>
@@ -184,7 +186,7 @@ $pending = $result0->num_rows;
         <span class="info-box-icon bg-red"><i class="fa fa-file-text" aria-hidden="true"></i></span>
         <div class="info-box-content">
           <span class="info-box-text">Clearance Request</span>
-          <span class="info-box-number">93,139</span>
+          <span class="info-box-number">N/A</span>
         </div><!-- /.info-box-content -->
       </div><!-- /.info-box -->
     </div>

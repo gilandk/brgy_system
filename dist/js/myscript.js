@@ -27,6 +27,20 @@ $(document).ready(function() {
 
 });
 
+//dob
+$('#dob').on('change', function() {
+  var today = new Date();
+  var birthDate = new Date($(this).val());
+  var age = today.getFullYear() - birthDate.getFullYear();
+  var m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+  }
+
+  $('#age').val(age);
+});
+
 
 $(function () {
   //add active link on menu
@@ -490,16 +504,159 @@ $("#form_updatedots").submit(function (e) {
   e.preventDefault();
 });
 
-//dob
-$('#dob').on('change', function() {
-  var today = new Date();
-  var birthDate = new Date($(this).val());
-  var age = today.getFullYear() - birthDate.getFullYear();
-  var m = today.getMonth() - birthDate.getMonth();
-
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
+//system
+$(".updatesystem").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
   }
-
-  $('#age').val(age);
+  return false;
 });
+
+$("#form_updatesystem").submit(function (e) {
+  $.post("update-system(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+//slider-title
+$(".updatetitle").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+
+$("#form_updatetitle").submit(function (e) {
+  $.post("update-slider-title(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+$(".updatetitle1").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+
+$("#form_updatetitle1").submit(function (e) {
+  $.post("update-slider-title(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+$(".updatetitle2").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+
+$("#form_updatetitle2").submit(function (e) {
+  $.post("update-slider-title(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+//content
+$(".updatecontent").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_updatecontent").submit(function (e) {
+  $.post("update-content(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+$(".updatecontent1").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_updatecontent1").submit(function (e) {
+  $.post("update-content(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+$(".updatecontent2").on("click", function () {
+  var confirmation = confirm("Are you sure to UPDATE this");
+  if (confirmation) {
+    return true;
+  }
+  return false;
+});
+
+$("#form_updatecontent2").submit(function (e) {
+  $.post("update-content(code).php", $(this).serialize(), function (data) {
+    if (data == "Successfully Updated.") {
+      alert(data);
+      location.reload();
+    } else {
+      alert(data);
+    }
+  });
+  e.preventDefault();
+});
+
+
+
+
+
+
+
+
+
+
+

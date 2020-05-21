@@ -9,6 +9,15 @@ if (isset($_SESSION['id_admin'])) {
 
 require_once('../config.php');
 
+
+$sql = "SELECT * FROM tblsystem WHERE id_system='1'";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+  $brgyname = $row['brgyname'];
+  $logo = $row['logo'];
+  $address = $row['address'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +32,7 @@ require_once('../config.php');
     <link rel="icon">
 
 
-    <title>Signin</title>
+    <title>Brgy <?php echo $brgyname; ?> MIS (LOGIN)</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
@@ -37,11 +46,13 @@ require_once('../config.php');
 
     <div class="container">
         <div align="center">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-circle" alt="Generic placeholder thumbnail">
+        <img src="../uploads/logo/<?php echo $logo; ?>" width="200" height="200" class="img-thumbnail img-circle" alt="Generic placeholder thumbnail">
             <br />
-            <h2 class="form-signin-heading text-center">Barangay Taal Management System</h2>
+            <h2 class="form-signin-heading text-center"><b>Barangay <?php echo $brgyname; ?></b></h2>
+            <h2 class="form-signin-heading text-center">Management Information System</h2>
+            <h4 class="form-signin-heading text-center"><em><?php echo $address; ?></em></h4>
             <br />
-            <h3 class="form-signin-heading text-center">Please sign in (ADMIN)</h3>
+            <h3 class="form-signin-heading text-center">Sign in</h3>
             <br />
         </div>
 

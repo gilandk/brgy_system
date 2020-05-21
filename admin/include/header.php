@@ -10,6 +10,13 @@ if (empty($_SESSION['id_admin'])) {
 
 require_once('../config.php');
 
+$sql = "SELECT * FROM tblsystem WHERE id_system='1'";
+$result = $conn->query($sql);
+while ($row = $result->fetch_assoc()) {
+  $brgyname = $row['brgyname'];
+  $logo = $row['logo'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +60,7 @@ require_once('../config.php');
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Barangay Management System</a>
+        <a class="navbar-brand" href="dashboard.php">Barangay <?php echo $brgyname; ?></a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -66,12 +73,12 @@ require_once('../config.php');
 
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
+      <div class="col-sm-3 col-md-2 sidebar hide-scroll">
+          <img src="../uploads/logo/<?php echo $logo ?>" height="150px" width="150px" class="img-thumbnail img-circle" style="margin-left:25px">
+          <p> </p>
         <ul class="nav nav-sidebar">
           <li class="active"><a href="dashboard.php">Overview</a></li>
-
           <?php
-
           if ($_SESSION['privAll'] == '1') {
           ?>
             <li><a href="residents.php">Resident Information</a></li>
@@ -81,7 +88,7 @@ require_once('../config.php');
             <li><a href="disasters.php">Disaster Risk</a></li>
             <li><a href="blotters.php">Blotter</a></li>
             <li><a href="#">Clearance</a></li>
-            <li><a href="#">Announcements</a></li>
+            <li><a href="announcements.php">Announcements</a></li>
             <li><a href="officials.php">Officials</a></li>
             <li><a href="accounts.php">Accounts</a></li>
             <li><a href="settings-system.php">Settings (System)</a></li>
@@ -96,7 +103,7 @@ require_once('../config.php');
             <li><a href="disasters.php">Disaster Risk</a></li>
             <li><a href="blotters.php">Blotter</a></li>
             <li><a href="#">Clearance</a></li>
-            <li><a href="#">Announcements</a></li>
+            <li><a href="announcements.php">Announcements</a></li>
             <li><a href="officials.php">Officials</a></li>
             <li><a href="settings-system.php">Settings (System)</a></li>
 
@@ -110,7 +117,7 @@ require_once('../config.php');
           } else if ($_SESSION['privAnc'] == '1') {
 
           ?>
-            <li><a href="#">Announcements</a></li>
+            <li><a href="announcements.php">Announcements</a></li>
             <li><a href="settings-system.php">Settings (System)</a></li>
           <?php
           } else if ($_SESSION['privHealth'] == '1') {

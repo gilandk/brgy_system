@@ -18,7 +18,7 @@ require_once('../config.php');
   $location = mysqli_real_escape_string($conn, $_POST['location']);
 
 
-  $sql = "UPDATE tblblotter SET name='$name', contact='$contact', details='$details', location='$location'  WHERE id_blotter='$id'";
+  $sql = "UPDATE tblblotter SET name='$name', contact='$contact', details='$details', location='$location' WHERE id_blotter='$id'";
   $result = $conn->query($sql);
 
   if ($result === TRUE) {
