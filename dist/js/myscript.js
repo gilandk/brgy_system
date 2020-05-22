@@ -115,7 +115,7 @@ $(function () {
 
 $(function () {
   $("#blotters").DataTable({
-    order: [5, "desc"],
+    order: [6, "desc"],
     paging: true,
     lengthChange: true,
     searching: true,

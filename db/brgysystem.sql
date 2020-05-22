@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2020 at 03:51 PM
+-- Generation Time: May 22, 2020 at 06:08 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -73,6 +73,7 @@ CREATE TABLE `tblannounce` (
 CREATE TABLE `tblblotter` (
   `id_blotter` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
+  `complaint_for` varchar(255) NOT NULL,
   `contact` varchar(11) NOT NULL,
   `details` text NOT NULL,
   `location` varchar(255) NOT NULL,
@@ -86,8 +87,9 @@ CREATE TABLE `tblblotter` (
 -- Dumping data for table `tblblotter`
 --
 
-INSERT INTO `tblblotter` (`id_blotter`, `name`, `contact`, `details`, `location`, `status`, `datecreated`, `archive`, `archiveDate`) VALUES
-(1, 'Brenn Dela Cruz', '9546546512', 'Fist fight', 'Bocaue', 'Pending', '2020-05-16 10:09:47', 0, '2020-05-17 11:00:20');
+INSERT INTO `tblblotter` (`id_blotter`, `name`, `complaint_for`, `contact`, `details`, `location`, `status`, `datecreated`, `archive`, `archiveDate`) VALUES
+(1, 'Brenn Dela Cruz', 'JM Ignacio', '9546546512', 'Fist fight', 'Bocaue', 'Pending', '2020-05-16 10:09:47', 0, '2020-05-22 03:50:17'),
+(2, 'Dale Nicolas', 'Richard German', '09123456789', 'Rape', 'Tabang', 'Pending', '2020-05-22 04:06:37', 0, '2020-05-22 04:06:37');
 
 -- --------------------------------------------------------
 
@@ -500,7 +502,7 @@ ALTER TABLE `tblannounce`
 -- AUTO_INCREMENT for table `tblblotter`
 --
 ALTER TABLE `tblblotter`
-  MODIFY `id_blotter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_blotter` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tblbusclearance`

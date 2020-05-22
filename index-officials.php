@@ -53,10 +53,8 @@ while ($row = $result->fetch_assoc()) {
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li><a href="index.php">Home</a></li>
-              <li class="active"><a href="#Officials">Officials</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="#blotter">Blotter Report</a></li>
+              <li class="active"><a href="index-officials.php">Officials</a></li>
+              <li><a href="blotter.php">Blotter Report</a></li>
               <li><a href="#clearance">Clearance Request</a></li>
             </ul>
             <ul class="nav navbar-nav pull-right">

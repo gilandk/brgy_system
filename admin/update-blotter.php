@@ -25,6 +25,11 @@ include('include/header.php');
           </div>
 
           <div class="form-group">
+            <label>Complaint for:</label>
+            <input type="text" class="form-control" placeholder="Complaint for" name="complaint_for" value="<?php echo $row['complaint_for']; ?>" autocomplete="off">
+          </div>
+
+          <div class="form-group">
             <label>Contact:</label>
             <input type="text" class="form-control" placeholder="Contact" name="contact" value="<?php echo $row['contact']; ?>" autocomplete="off">
           </div>

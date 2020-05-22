@@ -17,7 +17,8 @@ include('include/header.php');
         <br />
         <table id="blotters" class="table table-hover">
           <thead>
-            <th>Complainant</th>
+            <th>Name</th>
+            <th>Complaint for</th>
             <th>Contact</th>
             <th>Details</th>
             <th>Location</th>
@@ -37,6 +38,7 @@ include('include/header.php');
             ?>
                 <tr>
                   <td><?php echo $rows['name']; ?></td>
+                  <td><?php echo $rows['complaint_for']; ?></td>
                   <td><?php echo $rows['contact']; ?></td>
                   <td><?php echo $rows['details']; ?></td>
                   <td><?php echo $rows['location']; ?></td>

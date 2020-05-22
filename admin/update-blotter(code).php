@@ -13,12 +13,13 @@ require_once('../config.php');
 
   $id = mysqli_real_escape_string($conn, $_POST['id_blotter']);
   $name = mysqli_real_escape_string($conn, $_POST['name']);
+  $complaint_for = mysqli_real_escape_string($conn, $_POST['complaint_for']);
   $contact = mysqli_real_escape_string($conn, $_POST['contact']);
   $details = mysqli_real_escape_string($conn, $_POST['details']);
   $location = mysqli_real_escape_string($conn, $_POST['location']);
 
 
-  $sql = "UPDATE tblblotter SET name='$name', contact='$contact', details='$details', location='$location' WHERE id_blotter='$id'";
+  $sql = "UPDATE tblblotter SET name='$name', complaint_for='$complaint_for', contact='$contact', details='$details', location='$location' WHERE id_blotter='$id'";
   $result = $conn->query($sql);
 
   if ($result === TRUE) {
